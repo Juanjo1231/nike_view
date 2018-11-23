@@ -1,0 +1,28 @@
+{
+  "name": "Nike RTA View",
+  "version": "0.0.1",
+  "description": "Auxiliar view for Nike RTA.",
+  "manifest_version": 2,
+  "author": "jrivera@24-7intouch.com",
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+
+  "browser_action": {
+    "default_icon": "images/icon.png"
+  },
+
+  "permissions": [
+    "activeTab",
+    "declarativeContent",
+    "tabs"
+  ],
+
+  "content_scripts": [{
+    "matches": ["https://nike-gax.genesyscloud.com/gax/*"],
+    "js": ["js/genesys_content.js"],
+    "run_at": "document_idle"
+  }]
+}
